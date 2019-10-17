@@ -95,7 +95,7 @@ uniq_restaurants.each_with_index do |res, index|
    user = User.create(
                 name: user_names[index]
         )
-   3.times do |x|
+   rand(4..6).times do |x|
         item = Item.create(
                 name: item_names.sample,
                 description: item_descriptions.sample,
@@ -103,12 +103,14 @@ uniq_restaurants.each_with_index do |res, index|
                 menu: menu
         )
 
-        review = Review.create(
-        body: user_reviews.sample,
-        rating: rand(5),
-        item: item,
-        user: user
-        )
+        rand(3..5).times do |x|
+            review = Review.create(
+            body: user_reviews.sample,
+            rating: rand(1..5),
+            item: item,
+            user: user
+            )
+        end
    end
 end
 

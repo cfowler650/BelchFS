@@ -7,24 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)rest
 
 
-
-
-
-# [mountain view, san jose, santa clara]
-# [burger king, arbys, dennys ]
-
-
-#  [{ mountain_view : [
-#      burgers_king
-#       arbys
-#       dennys
-#             ]
-
-# }
-
-# [This is a geat food adfomasdf
-# adfomasdffasdfasdfasdfasdf
-
 require 'csv'
 
 restaurants_list = []
@@ -196,7 +178,7 @@ user_names = ['Sally Nickleback', 'Paul Mcartney',
 
 #fill restaurants from csv into array restaurants l
 
-CSV.foreach("../citystate2.csv", :headers => true) do |row|
+CSV.foreach("/citystate2.csv", :headers => true) do |row|
     restaurants_list << row['restaurant']
 end
 
@@ -207,7 +189,7 @@ uniq_restaurants = restaurants_list.uniq(&:downcase)
 locations = []
 
 #fill locations array with ['city','state']
-CSV.foreach("../citystate2.csv", :headers => true) do |row|
+CSV.foreach("/citystate2.csv", :headers => true) do |row|
     temp = [row['city'], row['state']]
     locations << temp
 end

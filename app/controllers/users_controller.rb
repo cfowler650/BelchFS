@@ -9,6 +9,7 @@
 #
 
 class UsersController < ApplicationController
+
     def index
         @users = User.all()
     end
@@ -20,7 +21,6 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(:all, :conditions => { :username => params['username'] }, :limit => 1)
-        # @user = User.find_by(username: params[:username], password_digest: params[:password_digest])
 
         if @user.empty?
             raise ActionController::RoutingError.new('Not Found')
